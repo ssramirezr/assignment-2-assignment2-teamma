@@ -15,16 +15,18 @@ def input_cky():
         strings = 0
         while strings < nt_strings[1]:
             l = input()
-            #ans = cky(G, l)
-            if 0:
+            ans = cky(G, l)
+            if ans == 'yes':
                 print('yes')
             else:
                 print('no')
             strings += 1
 
-def cky():
-    i = 0
-    if i == 0:
-        return 0
-    else:
-        return
+def cky(G, l):
+    n = len(l)
+    table = []
+    for i in range(n + 1):
+        row = []
+        for j in range(n + 1):
+            row.append([])
+        table.append(row)
