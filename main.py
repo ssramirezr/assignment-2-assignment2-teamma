@@ -25,8 +25,16 @@ def input_cky():
 def cky(G, l):
     n = len(l)
     table = []
-    for i in range(n + 1):
+    for i in range(n+1):
         row = []
-        for j in range(n + 1):
+        for j in range(n+1):
             row.append([])
         table.append(row)
+
+    for j in range(1, n+1):
+        for nt in G:  #For each nonterminal in G
+            for pd in G[nt]:  #For each production of a nonterminal
+                if len(pd) == 1 and pd[0] == l[j - 1]:
+                    table[j - 1][j].append(nt)
+
+input_cky()
