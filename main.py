@@ -37,4 +37,13 @@ def cky(G, l):
                 if len(pd) == 1 and pd[0] == l[j - 1]:
                     table[j - 1][j].append(nt)
 
+        for i in range(j-2, -1, -1):
+            for k in range(i+1, j):
+                for nt in G:   #For each nonterminal in G
+                    for pd in G[nt]:  #For each production of a nonterminal
+                        if len(pd) == 2 and pd[0] in table[i][k] and pd[1] in table[k][j]:
+                            table[i][j].append(nt)
+
+    return 'yes' if 'S' in table[0][n] else 'no'
+
 input_cky()
